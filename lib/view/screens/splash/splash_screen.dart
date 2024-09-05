@@ -7,6 +7,8 @@ import 'package:simple_animations/simple_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -35,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   void _route() {
-    Timer(Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 5), () {
       // Navigate to the next screen after the splash screen
       Navigator.pushReplacementNamed(context, '/home');
     });
@@ -53,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen>
           // Rive animation (Globe with data streams)
           Center(
             child: _riveArtboard == null
-                ? CircularProgressIndicator()
+                ? const CircularProgressIndicator()
                 : GlowWidget(
                     // Add a glowing effect around the globe
                     glowColor: Colors.blueAccent,
@@ -78,6 +80,8 @@ class _SplashScreenState extends State<SplashScreen>
 
 // Custom background animation for sunrise using simple_animations
 class CustomBackgroundAnimation extends StatelessWidget {
+  const CustomBackgroundAnimation({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MirrorAnimationBuilder<double>(
