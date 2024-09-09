@@ -1,9 +1,9 @@
-// lib/widgets/Sustainability/SustainabilityChallengeWidget.dart
+// lib/widgets/Healthcare/HealthRecommendationWidget.dart
 import 'package:flutter/material.dart';
-import '../../services/SustainabilityService.dart';
+import '../../services/HealthcareService.dart';
 
-class SustainabilityChallengeWidget extends StatelessWidget {
-  final SustainabilityService _sustainabilityService = SustainabilityService();
+class HealthRecommendationWidget extends StatelessWidget {
+  final HealthcareService _healthcareService = HealthcareService();
 
   @override
   Widget build(BuildContext context) {
@@ -16,27 +16,30 @@ class SustainabilityChallengeWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Sustainability Challenges',
+              'Health Recommendations',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
             FutureBuilder<Map<String, dynamic>>(
-              future: _sustainabilityService.fetchSustainabilityChallenges(),
+              future: _healthcareService.fetchHealthRecommendations(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
                   return Center(child: Text('Error: ${snapshot.error}'));
                 } else if (!snapshot.hasData) {
-                  return Center(child: Text('No challenges available'));
+                  return Center(
+                      child: Text('No health recommendations available'));
                 } else {
                   final data = snapshot.data!;
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Energy: ${data['energy']}',
+                      Text('Diet: ${data['diet']}',
                           style: TextStyle(fontSize: 16)),
-                      Text('Water: ${data['water']}',
+                      Text('Exercise: ${data['exercise']}',
+                          style: TextStyle(fontSize: 16)),
+                      Text('Sleep: ${data['sleep']}',
                           style: TextStyle(fontSize: 16)),
                     ],
                   );

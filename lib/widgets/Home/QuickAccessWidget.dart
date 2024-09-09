@@ -1,9 +1,11 @@
-// lib/widgets/Home/QuickAccessWidget.dart
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import '../../services/RealTimeDataService.dart';
 
 class QuickAccessWidget extends StatelessWidget {
   final RealTimeDataService _realTimeDataService = RealTimeDataService();
+  final FirebaseAnalytics _analytics =
+      FirebaseAnalytics(); // Add Firebase Analytics instance
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +44,18 @@ class QuickAccessWidget extends StatelessWidget {
                     itemCount: quickAccessItems.length,
                     itemBuilder: (context, index) {
                       final item = quickAccessItems[index];
+
                       return GestureDetector(
                         onTap: () {
+                          // Log the event when a quick access item is tapped
+                          _analytics.logEvent(
+                            name: 'quick_access_item_tapped',
+                            parameters: {
+                              'item_label': item['label'],
+                              'user_id': '12345', // Replace with actual user id
+                              'timestamp': DateTime.now().toIso8601String(),
+                            },
+                          );
                           Navigator.pushNamed(context, item['route']);
                         },
                         child: Card(
@@ -51,9 +63,7 @@ class QuickAccessWidget extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.store,
-                                  size:
-                                      40), // This can be changed to dynamic icons
+                              Icon(Icons.store, size: 40),
                               SizedBox(height: 10),
                               Text(item['label'],
                                   style: TextStyle(fontSize: 16)),

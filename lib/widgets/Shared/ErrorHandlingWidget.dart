@@ -5,7 +5,8 @@ class ErrorHandlingWidget extends StatelessWidget {
   final Object error;
   final VoidCallback retryCallback;
 
-  ErrorHandlingWidget({required this.error, required this.retryCallback});
+  const ErrorHandlingWidget(
+      {super.key, required this.error, required this.retryCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +15,10 @@ class ErrorHandlingWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text('Error: $error'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ElevatedButton(
             onPressed: retryCallback,
-            child: Text('Retry'),
+            child: const Text('Retry'),
           ),
         ],
       ),

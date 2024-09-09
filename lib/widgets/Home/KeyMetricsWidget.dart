@@ -1,9 +1,11 @@
-// lib/widgets/Home/KeyMetricsWidget.dart
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import '../../services/RealTimeDataService.dart';
+import '../../widgets/Shared/ErrorHandlingWidget.dart';
 
 class KeyMetricsWidget extends StatelessWidget {
   final RealTimeDataService _realTimeDataService = RealTimeDataService();
+  final FirebaseAnalytics _analytics = FirebaseAnalytics(); // Add Firebase Analytics instance
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +28,19 @@ class KeyMetricsWidget extends StatelessWidget {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
-                  return Center(child: Text('Error: ${snapshot.error}'));
+                  return ErrorHandlingWidget(errorMessage: snapshot.error.toString());
                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
                   return Center(child: Text('No metrics available'));
                 } else {
+                  // Log the event when key metrics are displayed
+                  _analytics.logEvent(
+                    name: 'view_key_metrics',
+                    parameters: {
+                      'user_id': '12345', // Replace with actual user id
+                      'timestamp': DateTime.now().toIso8601String(),
+                    },
+                  );
+
                   final keyMetrics = snapshot.data!;
                   return Column(
                     children: keyMetrics.entries.map((entry) {

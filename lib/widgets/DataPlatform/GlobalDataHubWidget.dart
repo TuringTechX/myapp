@@ -1,9 +1,9 @@
-// lib/widgets/Sustainability/SustainabilityChallengeWidget.dart
+// lib/widgets/DataPlatform/GlobalDataHubWidget.dart
 import 'package:flutter/material.dart';
-import '../../services/SustainabilityService.dart';
+import '../../services/DataService.dart';
 
-class SustainabilityChallengeWidget extends StatelessWidget {
-  final SustainabilityService _sustainabilityService = SustainabilityService();
+class GlobalDataHubWidget extends StatelessWidget {
+  final DataService _dataService = DataService();
 
   @override
   Widget build(BuildContext context) {
@@ -16,29 +16,28 @@ class SustainabilityChallengeWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Sustainability Challenges',
+              'Global Data Hub',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
-            FutureBuilder<Map<String, dynamic>>(
-              future: _sustainabilityService.fetchSustainabilityChallenges(),
+            FutureBuilder<List<Map<String, dynamic>>>(
+              future: _dataService.fetchGlobalData(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
                   return Center(child: Text('Error: ${snapshot.error}'));
-                } else if (!snapshot.hasData) {
-                  return Center(child: Text('No challenges available'));
+                } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                  return Center(child: Text('No global data available'));
                 } else {
                   final data = snapshot.data!;
                   return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Energy: ${data['energy']}',
-                          style: TextStyle(fontSize: 16)),
-                      Text('Water: ${data['water']}',
-                          style: TextStyle(fontSize: 16)),
-                    ],
+                    children: data.map((entry) {
+                      return ListTile(
+                        title: Text(entry['category']),
+                        subtitle: Text(entry['value']),
+                      );
+                    }).toList(),
                   );
                 }
               },
