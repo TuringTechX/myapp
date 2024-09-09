@@ -1,6 +1,5 @@
-name: myapp
-description: "A new Flutter project."
-publish_to: 'none'
+name: Aeonexus
+description: "A new Flutter project addressing global challenges."
 
 version: 1.0.0+1
 
@@ -13,75 +12,105 @@ dependencies:
 
   # Core Flutter Packages
   cupertino_icons: ^1.0.8
-  provider: ^6.1.2
-  http: ^1.2.2
-  fl_chart: ^0.69.0
-  carousel_slider: ^5.0.0
-  bottom_navy_bar: ^6.1.0
-  shared_preferences: ^2.1.1
-  google_fonts: ^6.2.1
-  go_router: ^14.2.7
-  rive: ^0.13.13
-  simple_animations: ^5.0.2
-  flutter_glow: ^0.3.2
-  stacked: ^3.4.3
-  auto_size_text: ^3.0.0
-  flutter_animate: ^4.5.0
+  provider: ^6.1.2 # State management
+  http: ^1.2.2 # RESTful API integration
+  shared_preferences: ^2.1.1 # Local storage
+  google_fonts: ^6.2.1 # Custom fonts
+  go_router: ^14.2.7 # Improved navigation
 
-  # Firebase Integration
-  firebase_analytics: ^11.2.0
-  firebase_auth: ^5.2.0
-  firebase_storage: ^12.2.0
-  cloud_firestore: ^5.4.0
-  firebase_ml_model_downloader: ^0.3.1
+  # Charts and Data Visualization
+  fl_chart: ^0.69.0 # Charts for dashboard
+  chart_sparkline: ^1.1.1 # Lightweight charts
+  percent_indicator: ^4.2.3 # Progress indicators
+  syncfusion_flutter_charts: ^26.2.13 # Advanced data visualizations
 
-  # UI and Layout
-  flutter_svg: ^2.0.10+1
-  lottie: ^3.1.2
-  smooth_page_indicator: ^1.2.0+3
+  # UI and Layout Packages
+  carousel_slider: ^5.0.0 # Carousel for feature sections
+  bottom_navy_bar: ^6.1.0 # Bottom navigation
+  auto_size_text: ^3.0.0 # Responsive text resizing
+  flutter_svg: ^2.0.10+1 # SVG handling
+  smooth_page_indicator: ^1.2.0+3 # Page indicators
+  stacked: ^3.4.3 # MVVM architecture
+
+  # Animations
+  rive: ^0.13.13 # For complex animations
+  lottie: ^3.1.2 # JSON animations
+  simple_animations: ^5.0.2 # Custom animations
+  flutter_animate: ^4.5.0 # Predefined animations
+  flutter_glow: ^0.3.2 # Glowing effect for UI
+
+  # Firebase and Cloud Services
+  firebase_analytics: ^11.2.0 # Analytics
+  firebase_auth: ^5.2.0 # Authentication
+  firebase_storage: ^12.2.0 # Cloud storage
+  cloud_firestore: ^5.4.0 # Firestore database
+  firebase_ml_model_downloader: ^0.3.1 # ML model integration
 
   # AI and Machine Learning
-  tflite_flutter: ^0.11.0
-  google_mlkit_face_detection: ^0.11.0
-  google_mlkit_barcode_scanning: ^0.12.0
-
-  # Data and Visualization Tools
-  chart_sparkline: ^1.1.1
-  percent_indicator: ^4.2.3
-  flutter_html: ^2.2.1
+  tflite_flutter: ^0.11.0 # TensorFlow Lite integration
+  google_mlkit_face_detection: ^0.11.0 # Face detection
+  google_mlkit_barcode_scanning: ^0.12.0 # Barcode scanning
 
   # Community and Social Engagement
-  flutter_contacts: ^1.1.9+2
-  share_plus: ^10.0.2
-  bottom_sheet_expandable_bar: ^0.1.2
+  flutter_contacts: ^1.1.9+2 # Contacts handling
+  share_plus: ^10.0.0 # Downgraded to resolve version conflict # Sharing content
+  bottom_sheet_expandable_bar: ^0.1.2 # Expandable bottom sheets
 
-  # Storage and Security
-  flutter_secure_storage: ^9.2.2
-  device_info_plus: ^10.1.2
-  connectivity_plus: ^6.0.5
+  # Storage, Security, and Device Info
+  flutter_secure_storage: ^9.2.2 # Secure storage for sensitive data
+  device_info_plus: ^10.1.2 # Device info for analytics
+  connectivity_plus: ^6.0.5 # Network connectivity checks
 
-dev_dependencies:
+  # Blockchain Integration (for Transparency & Investment)
+  web3dart: ^2.6.1 # Blockchain interaction
+
+  # Payment and Transaction
+  flutter_stripe: ^11.0.0 # Stripe for payments
+  in_app_purchase: ^3.2.0 # In-app purchases
+
+  # Localization & Internationalization
+  flutter_localizations:
+    sdk: flutter # Localization for internationalization
+  intl: ^0.19.0 # Formatting dates, numbers, etc.
+  
+  # Notifications and Messaging
+  firebase_messaging: ^15.1.0 # Push notifications
+  
+  # Real-Time Communication & Collaboration
+  firebase_database: ^11.1.1 # Real-time database
+
+  # Testing and Debugging
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
-  build_runner: ^2.4.11
+  flutter_lints: ^4.0.0 # Linting rules for better code quality
+  build_runner: ^2.4.11 # Code generation
+  mockito: ^5.3.2 # Unit testing
+  integration_test:
+    sdk: flutter # Integration testing
 
 flutter:
   uses-material-design: true
 
   assets:
-    - assets/image/
-    - assets/animationFile/
-    - assets/language/
+    - lib/assets/images/
+    - lib/assets/animations/
+    - lib/assets/fonts/
+    - lib/assets/language/
+    - lib/assets/mock_real_time_updates.json
+    - lib/assets/mock_personalized_feed.json
 
   fonts:
     - family: Rubik
       fonts:
-        - asset: assets/font/Rubik-Light.ttf
+        - asset: lib/assets/fonts/Rubik-Light.ttf
           weight: 300
-        - asset: assets/font/Rubik-Regular.ttf
+        - asset: lib/assets/fonts/Rubik-Regular.ttf
           weight: 400
-        - asset: assets/font/Rubik-Medium.ttf
+        - asset: lib/assets/fonts/Rubik-Medium.ttf
           weight: 500
-        - asset: assets/font/Rubik-SemiBold.ttf
+        - asset: lib/assets/fonts/Rubik-SemiBold.ttf
           weight: 600
+
+  # Web-related configurations for Flutter Web
+  # web:
+  #  generate_web_app_manifest: true

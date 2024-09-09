@@ -1,0 +1,7 @@
+[
+    { "label": "Marketplace", "icon": "store", "route": "/marketplace" },
+    { "label": "Healthcare", "icon": "health_and_safety", "route": "/healthcare" },
+    { "label": "Community", "icon": "people", "route": "/community" },
+    { "label": "Energy", "icon": "bolt", "route": "/energy" }
+  ]
+  
