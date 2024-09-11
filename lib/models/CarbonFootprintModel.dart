@@ -1,15 +1,30 @@
+// lib/models/CarbonFootprintModel.dart
 class CarbonFootprintModel {
-  double _carbonFootprint = 0.0;
-  List<String> _offsetProjects = [];
+  final double totalEmissions;
+  final double transportEmissions;
+  final double energyEmissions;
+  final double wasteEmissions;
+  final List<String> offsetProjects;
 
-  double get carbonFootprint => _carbonFootprint;
-  List<String> get offsetProjects => _offsetProjects;
+  CarbonFootprintModel({
+    this.totalEmissions = 0.0,
+    this.transportEmissions = 0.0,
+    this.energyEmissions = 0.0,
+    this.wasteEmissions = 0.0,
+    this.offsetProjects = const [],
+  });
 
-  void calculateCarbonFootprint(double energyConsumption, double waste) {
-    _carbonFootprint = (energyConsumption * 0.5) + (waste * 0.3); // Example formula
+  factory CarbonFootprintModel.fromJson(Map<String, dynamic> json) {
+    return CarbonFootprintModel(
+      totalEmissions: json['totalEmissions'] ?? 0.0,
+      transportEmissions: json['transportEmissions'] ?? 0.0,
+      energyEmissions: json['energyEmissions'] ?? 0.0,
+      wasteEmissions: json['wasteEmissions'] ?? 0.0,
+      offsetProjects: List<String>.from(json['offsetProjects'] ?? []),
+    );
   }
 
   void addOffsetProject(String project) {
-    _offsetProjects.add(project);
+    offsetProjects.add(project);
   }
 }

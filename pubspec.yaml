@@ -90,6 +90,7 @@ dependencies:
   integration_test:
     sdk: flutter # Integration testing
   google_generative_ai: ^0.4.6
+  get: ^4.6.6
 
 flutter:
   uses-material-design: true
