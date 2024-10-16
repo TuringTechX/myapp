@@ -2,11 +2,11 @@ Here’s a detailed **README.md** file draft for your **Aeonexus** app, explaini
 
 ---
 
-# **Aeonexus**
+# **Genesis**
 
 ### A New Approach to Global Sustainability
 
-Aeonexus is a cross-platform mobile application designed to address critical global challenges. Through cutting-edge technology, community engagement, and AI-powered decision-making, Aeonexus offers solutions that empower individuals and organizations to tackle issues like climate change, renewable energy trading, socioeconomic inequality, personalized healthcare, biodiversity protection, and more.
+Genesis is a cross-platform mobile application designed to address critical global challenges. Through cutting-edge technology, community engagement, and AI-powered decision-making, Aeonexus offers solutions that empower individuals and organizations to tackle issues like climate change, renewable energy trading, socioeconomic inequality, personalized healthcare, biodiversity protection, and more.
 
 ---
 
@@ -25,7 +25,7 @@ Aeonexus is a cross-platform mobile application designed to address critical glo
 
 ## **Features**
 
-Aeonexus offers a comprehensive suite of tools and functionalities across various global challenges, including:
+Genesis offers a comprehensive suite of tools and functionalities across various global challenges, including:
 
 1. **Climate Change Mitigation**  
    - Carbon tracking, emission reduction, and offset integration.
@@ -61,7 +61,7 @@ Aeonexus offers a comprehensive suite of tools and functionalities across variou
 
 ## **Technologies Used**
 
-Aeonexus is built using modern technologies and tools to ensure scalability, efficiency, and a seamless user experience:
+Genesis is built using modern technologies and tools to ensure scalability, efficiency, and a seamless user experience:
 
 ### **Backend**:
 - **Laravel** with **JavaScript** for server-side logic and API integration.
@@ -89,7 +89,7 @@ Aeonexus is built using modern technologies and tools to ensure scalability, eff
 
 ## **Project Structure**
 
-Aeonexus is organized into multiple feature modules, each focusing on a specific global challenge or functionality. Below is the high-level structure of the project:
+Genesis is organized into multiple feature modules, each focusing on a specific global challenge or functionality. Below is the high-level structure of the project:
 
 ```
 Aeonexus/
