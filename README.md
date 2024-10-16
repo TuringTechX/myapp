@@ -1,4 +1,4 @@
-Here’s a detailed **README.md** file draft for your **Aeonexus** app, explaining its features, architecture, installation process, and other important aspects:
+Here’s a detailed **README.md** file draft for your **Genesis** app, explaining its features, architecture, installation process, and other important aspects:
 
 ---
 
